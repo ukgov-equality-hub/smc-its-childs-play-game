@@ -1,0 +1,18 @@
+name: 'Terraform, Build, Deploy (production)'
+
+on: workflow_dispatch
+
+concurrency: ${{ github.workflow }}  # Prevents more than one instance of this workflow running at the same time
+
+jobs:
+  terraform_build_deploy:
+    uses: ./.github/workflows/_deploy-shared.yml
+    with:
+      GITHUB_ACTIONS_ENVIRONMENT: Prod
+      TERRAFORM_STATE_BUCKET: uk-gov-equality-hub-terraform-state-bucket
+      TERRAFORM_STATE_FILE: smc_childs_play_game_prod.tfstate
+      TERRAFORM_TFVARS_FILE: prod.tfvars
+      NPM_BUILD_COMMAND: build_prod
+    secrets:
+      TERRAFORM_AWS_ACCESS_KEY_ID: ${{ secrets.TERRAFORM_AWS_ACCESS_KEY_ID }}
+      TERRAFORM_AWS_SECRET_ACCESS_KEY: ${{ secrets.TERRAFORM_AWS_SECRET_ACCESS_KEY }}

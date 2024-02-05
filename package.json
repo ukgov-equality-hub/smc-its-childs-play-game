@@ -1,0 +1,14 @@
+{
+  "name": "smc-its-childs-play-game",
+  "description": "The game for the Social Mobility Commission's It's Child's Play campaign",
+  "scripts": {
+    "build_dev": "node ./james-example-build.js   # Replace this with the actual build script!",
+    "build_prod": "node ./james-example-build.js  # Replace this with the actual build script!"
+  },
+  "author": "UK Government's Equality Hub / Social Mobility Commission",
+  "license": "Open Government Licence v3 https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

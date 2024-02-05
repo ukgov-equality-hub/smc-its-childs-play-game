@@ -1,0 +1,3 @@
+bucket = "uk-gov-equality-hub-terraform-state-bucket"
+key = "smc_childs_play_game_dev.tfstate"
+region = "eu-west-2"
