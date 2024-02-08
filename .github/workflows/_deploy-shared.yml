@@ -78,15 +78,15 @@ jobs:
       - name: 'Checkout Code'
         uses: actions/checkout@v3
 
-      - name: 'Install Node.JS dependencies'
+      - name: 'Install Yarn dependencies'
         run: |
-          npm ci
+          yarn
 
       - name: 'Build the game'
         run: |
-          npm run ${{ inputs.NPM_BUILD_COMMAND }}
+          yarn ${{ inputs.NPM_BUILD_COMMAND }}
 
       - name: 'Copy the files to AWS S3'
         run: |
           aws s3 sync . s3://${{ env.STATIC_WEBSITE_S3_BUCKET }} --delete
-        working-directory: ./build
+        working-directory: ./dist

@@ -12,7 +12,7 @@ jobs:
       TERRAFORM_STATE_BUCKET: uk-gov-equality-hub-terraform-state-bucket
       TERRAFORM_STATE_FILE: smc_childs_play_game_prod.tfstate
       TERRAFORM_TFVARS_FILE: prod.tfvars
-      NPM_BUILD_COMMAND: build_prod
+      NPM_BUILD_COMMAND: build
     secrets:
       TERRAFORM_AWS_ACCESS_KEY_ID: ${{ secrets.TERRAFORM_AWS_ACCESS_KEY_ID }}
       TERRAFORM_AWS_SECRET_ACCESS_KEY: ${{ secrets.TERRAFORM_AWS_SECRET_ACCESS_KEY }}
