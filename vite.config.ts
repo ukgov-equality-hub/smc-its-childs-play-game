@@ -14,9 +14,9 @@ export default ({ mode }) => {
       outDir: "dist",
       rollupOptions: {
         output: {
-          entryFileNames: `smc-game.js`,
-          chunkFileNames: `smc-game.js`,
-          assetFileNames: `smc-game.[ext]`,
+          entryFileNames: `SMC-interactive-game.js`,
+          chunkFileNames: `SMC-interactive-game.js`,
+          assetFileNames: `SMC-interactive-game.[ext]`,
         },
       },
     },

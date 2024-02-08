@@ -6,5 +6,12 @@
 **/.terraform/*
 .terraform.lock.hcl
 
+# OS X
+.DS_Store
+
 # Build folder
 build/
+
+# Node artifact files
+node_modules/
+dist/
