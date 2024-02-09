@@ -10,13 +10,13 @@ export default ({ mode }) => {
     base: BASE_URL,
     plugins: [react()],
     build: {
-      assetsDir: "assets",
+      assetsDir: "./assets",
       outDir: "dist",
       rollupOptions: {
         output: {
-          entryFileNames: `SMC-interactive-game.js`,
-          chunkFileNames: `SMC-interactive-game.js`,
-          assetFileNames: `SMC-interactive-game.[ext]`,
+          entryFileNames: `SMC-interactive-game-[hash].js`,
+          chunkFileNames: `SMC-interactive-game-[hash].js`,
+          assetFileNames: `SMC-interactive-game-[hash].[ext]`,
         },
       },
     },

@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react'
+import { GameQuestion } from './components/GameQuestion'
 const App = () => {
-  return <>SMC Game</>;
-};
-export default App;
+  return <GameQuestion />
+}
+export default App

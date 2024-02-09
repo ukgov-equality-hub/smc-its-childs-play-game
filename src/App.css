@@ -121,3 +121,97 @@ a {
   text-decoration: underline;
   text-underline-position: under;
 }
+
+
+
+
+
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 568px;
+}
+
+.game {
+  width: 320px;
+  height: 568px;
+  position: relative;
+  overflow: hidden;
+}
+.game__bg {
+  width: 100%;
+}
+.game__bg img {
+  width: 100%;
+}
+.game__clouds {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 568px;
+}
+.game__clouds:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.game__clouds img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  animation: spin 90s linear infinite;
+}
+.game__foreground {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  z-index: 1;
+}
+.game__foreground img {
+  width: 100%;
+  display: block;
+}
+.game__text {
+  will-change: transform;
+  animation: float 4.8s infinite linear;
+  width: 220px;
+  height: 135px;
+  position: absolute;
+  z-index: 2;
+  background: var(--bg);
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1369A2;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float {
+  0% {
+    transform: rotate(0deg) translate3d(3px, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate3d(3px, 0, 0) rotate(-360deg);
+  }
+}
