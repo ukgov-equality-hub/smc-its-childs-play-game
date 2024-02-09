@@ -150,10 +150,10 @@ body {
 }
 .game__clouds {
   position: absolute;
-  top: 50%;
+  top: 75%;
   right: 50%;
   transform: translate(50%, -50%);
-  width: 568px;
+  width: 852px;
 }
 .game__clouds:before {
   content: "";
@@ -167,7 +167,7 @@ body {
   width: 100%;
   height: 100%;
   will-change: transform;
-  animation: spin 90s linear infinite;
+  animation: spin 180s linear infinite;
 }
 .game__foreground {
   position: absolute;
@@ -181,7 +181,7 @@ body {
   width: 100%;
   display: block;
 }
-.game__text {
+.game__speechBubble {
   will-change: transform;
   animation: float 4.8s infinite linear;
   width: 220px;
@@ -191,15 +191,34 @@ body {
   background: var(--bg);
   background-size: contain;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-  font-weight: 700;
+
   color: #1369A2;
   text-align: center;
-  padding-left: 20px;
+
+ 
+}
+
+.game__speechBubble p {
+  font-family: 'Paytone One', ui-sans-serif, system-ui;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 400;
+  padding-left: 10px;
   padding-right: 20px;
+  padding-bottom: 30px;
+  line-height: 24px;
   box-sizing: border-box;
+}
+
+.game__speechBubble__bottom p {
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
 }
 
 @keyframes spin {
