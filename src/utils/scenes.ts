@@ -80,4 +80,51 @@ export const learningModules: LearningModule[] = [
       },
     ],
   },
+  {
+    learningTip:
+      "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",
+    audio: {
+      music: "background.mp3",
+      question: "question.mp3",
+      correct: "correct.mp3",
+      wrong: "wrong.mp3",
+    },
+    questions: [
+      {
+        backgroundImage: "assets/scene_01/sky_01.jpg",
+        foregroundImage: "assets/scene_01/bg_01a.png",
+        speechBubble: {
+          image: "assets/scene_01/speech_buble_01a.png",
+          position: ["18%", "4%"],
+          type: "bottomRight",
+        },
+        cloudOpacity: "20%",
+        question: "Can you count more frogs?",
+        answer:{
+          choices: ["7", "2", "5", "3"],
+          correctAnswer: "3",
+          correctAnswerResponse: "Correct - keep going!",
+          incorrectAnswerResponse: "Oops, try again!",
+        }
+
+      },
+      {
+        backgroundImage: "assets/scene_01/sky_01.jpg",
+        foregroundImage: "assets/scene_01/bg_01b.png",
+        speechBubble: {
+          image: "assets/scene_01/speech_buble_01b.png",
+          position: ["9%", "13%"],
+          type: "bottomLeft",
+        },
+        cloudOpacity: "20%",
+        question: "Can you count the dragonflies?",
+        answer:{
+          choices: ["7", "2", "5", "3"],
+          correctAnswer: "2",
+          correctAnswerResponse: "Correct - keep going!",
+          incorrectAnswerResponse: "Oops, try again!",
+        }
+      },
+    ],
+  },
 ];

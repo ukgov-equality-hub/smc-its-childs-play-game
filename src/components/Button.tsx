@@ -22,7 +22,7 @@ export const Button = ({ children, theme = "primary", onClick }: props) => {
 
   return (
 
-            <button className={`flex-1 font-paytone rounded-full p-3 pl-6 pr-6 text-xl ${buttonThemeClasses()}`}  onClick={onClick}>{children}</button>
+            <button className={`flex-1 font-paytone rounded-full py-3 px-6 text-xl ${buttonThemeClasses()}`}  onClick={onClick}>{children}</button>
           
   );
 };
