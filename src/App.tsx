@@ -7,6 +7,8 @@ const App = () => {
   const handleNextGame = () => {
     if (learningModules.length > learningModule + 1) {
       setLearningModule(learningModule + 1);
+    } else {
+      setLearningModule(0)
     }
   };
 
