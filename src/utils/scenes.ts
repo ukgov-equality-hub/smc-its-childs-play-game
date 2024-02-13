@@ -5,8 +5,14 @@ type Audio = {
   wrong: string;
 };
 
+export type Answers = {
+  choices: string[];
+  correctAnswer: string;
+  correctAnswerResponse: string;
+  incorrectAnswerResponse: string;
+}
 export type SpeechBubble = {
-  type: "top" | "bottom" | "left";
+  type: "top" | "bottomLeft" | "bottomRight" | "left";
   image: string;
   position: string[];
 };
@@ -16,16 +22,14 @@ export type Question = {
   speechBubble: SpeechBubble;
   cloudOpacity: string;
   question: string;
-  choices: string[];
-  correctAnswer: string;
-  correctAnswerResponse: string;
-  incorrectAnswerResponse: string;
+  answer: Answers
 };
 
 export type LearningModule = {
   learningTip: string;
   audio: Audio;
   questions: Question[];
+
 };
 
 export const learningModules: LearningModule[] = [
@@ -40,34 +44,39 @@ export const learningModules: LearningModule[] = [
     },
     questions: [
       {
-        backgroundImage: "/assets/scene_01/sky_01.jpg",
-        foregroundImage: "/assets/scene_01/bg_01a.png",
+        backgroundImage: "assets/scene_01/sky_01.jpg",
+        foregroundImage: "assets/scene_01/bg_01a.png",
         speechBubble: {
-          image: "/assets/scene_01/speech_buble_01a.png",
+          image: "assets/scene_01/speech_buble_01a.png",
           position: ["18%", "4%"],
-          type: "bottom",
+          type: "bottomRight",
         },
-        cloudOpacity: "80%",
+        cloudOpacity: "20%",
         question: "Can you count the frogs?",
-        choices: ["7", "2", "5", "3"],
-        correctAnswer: "3",
-        correctAnswerResponse: "Good job!",
-        incorrectAnswerResponse: "No, that's not it.",
+        answer:{
+          choices: ["7", "2", "5", "3"],
+          correctAnswer: "3",
+          correctAnswerResponse: "Correct - keep going!",
+          incorrectAnswerResponse: "Oops, try again!",
+        }
+
       },
       {
-        backgroundImage: "/assets/scene_01/sky_01.jpg",
-        foregroundImage: "/assets/scene_01/bg_01b.png",
+        backgroundImage: "assets/scene_01/sky_01.jpg",
+        foregroundImage: "assets/scene_01/bg_01b.png",
         speechBubble: {
-          image: "/assets/scene_01/speech_buble_01.png",
+          image: "assets/scene_01/speech_buble_01b.png",
           position: ["18%", "4%"],
-          type: "bottom",
+          type: "bottomLeft",
         },
-        cloudOpacity: "80%",
+        cloudOpacity: "20%",
         question: "Can you count the dragonflies?",
-        choices: ["7", "2", "5", "3"],
-        correctAnswer: "2",
-        correctAnswerResponse: "Good job!",
-        incorrectAnswerResponse: "No, that's not it.",
+        answer:{
+          choices: ["7", "2", "5", "3"],
+          correctAnswer: "2",
+          correctAnswerResponse: "Correct - keep going!",
+          incorrectAnswerResponse: "Oops, try again!",
+        }
       },
     ],
   },

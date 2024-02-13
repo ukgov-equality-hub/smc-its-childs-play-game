@@ -24,12 +24,6 @@ body {
   overflow-y: scroll;
 }
 
-#smc-game {
-  height: 320px;
-  width: 568px;
-  font-size: 16px;
-}
-
 #smc-game html,
 body,
 div,
@@ -122,11 +116,6 @@ a {
   text-underline-position: under;
 }
 
-
-
-
-
-
 body {
   margin: 0;
   display: flex;
@@ -184,22 +173,18 @@ body {
 .game__speechBubble {
   will-change: transform;
   animation: float 4.8s infinite linear;
-  width: 220px;
-  height: 135px;
   position: absolute;
   z-index: 2;
   background: var(--bg);
   background-size: contain;
   display: flex;
 
-  color: #1369A2;
+  color: #1369a2;
   text-align: center;
-
- 
 }
 
 .game__speechBubble p {
-  font-family: 'Paytone One', ui-sans-serif, system-ui;
+  font-family: "Paytone One", ui-sans-serif, system-ui;
   display: flex;
   width: 100%;
   height: 100%;
@@ -215,10 +200,25 @@ body {
   box-sizing: border-box;
 }
 
-.game__speechBubble__bottom p {
+.game__speechBubble__bottomRight p {
   padding-left: 10px;
   padding-right: 20px;
   padding-bottom: 30px;
+}
+
+.game__speechBubble__bottomRight {
+  width: 228px;
+  height: 154px;
+}
+
+.game__speechBubble__bottomLeft p {
+  padding-left: 30px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.game__speechBubble__bottomLeft {
+  width: 244px;
+  height: 153px;
 }
 
 @keyframes spin {

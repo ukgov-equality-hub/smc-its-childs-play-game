@@ -10,7 +10,7 @@ export const GameQuestion = ({ question }: { question: Question }) => {
 const speechBubbleClass = `game__speechBubble__${question.speechBubble.type}`
 
   return (
-    <section className="game">
+    <section>
       <div className="game__bg">
         <img src={question.backgroundImage} alt="" />
       </div>
@@ -22,7 +22,7 @@ const speechBubbleClass = `game__speechBubble__${question.speechBubble.type}`
       </div>
       <div style={{ top: question.speechBubble.position[0], left: question.speechBubble.position[1]}}  className={`game__speechBubble ${speechBubbleClass}`}>
         <img src={question.speechBubble.image}></img>
-        <p>{question.question}</p>
+        <p className='-rotate-bubble-text'>{question.question}</p>
       </div>
     </section>
   )
