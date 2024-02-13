@@ -66,7 +66,7 @@ export const learningModules: LearningModule[] = [
         foregroundImage: "assets/scene_01/bg_01b.png",
         speechBubble: {
           image: "assets/scene_01/speech_buble_01b.png",
-          position: ["18%", "4%"],
+          position: ["9%", "13%"],
           type: "bottomLeft",
         },
         cloudOpacity: "20%",

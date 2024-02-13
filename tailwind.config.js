@@ -16,10 +16,14 @@ module.exports = {
       },
       backgroundImage: {
         'answer-drawer': "url('assets/generic/answer_drawer/curveBackground.png')",
+        'social-x': "url('assets/generic/icons_social/social_twitter.svg')",
+        'social-instagram': "url('assets/generic/icons_social/social_instagram.svg')",
       },
       fontFamily: {
         'paytone': ['"Paytone One"','ui-sans-serif', 'system-ui'],
-        'cabinet-grotesk': ['"Cabinet Grotesk"','ui-sans-serif', 'system-ui']
+        'cabinet-grotesk': ['CabinetGrotesk-Variable','ui-sans-serif', 'system-ui'],
+        'cabinet-grotesk-bold': ['CabinetGrotesk-Bold','ui-sans-serif', 'system-ui']
+
       },
       rotate: {
         'bubble-text': '1.65deg',
