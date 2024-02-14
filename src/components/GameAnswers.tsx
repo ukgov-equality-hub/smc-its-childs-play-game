@@ -50,9 +50,9 @@ export const GameAnswers = (props: props) => {
 
           {showNext && (
             <div className="flex gap-x-2 items-center justify-center mx-24">
-              {" "}
-              <Button onClick={handleClickNext}>Next</Button>{" "}
-            </div>
+            {" "}
+            <Button onClick={handleClickNext}>Next</Button>{" "}
+          </div>
           )}
         </div>
       )}
