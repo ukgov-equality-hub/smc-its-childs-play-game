@@ -18,6 +18,9 @@ module.exports = {
         'answer-drawer': "url('assets/generic/answer_drawer/curveBackground.png')",
         'social-x': "url('assets/generic/icons_social/social_twitter.svg')",
         'social-instagram': "url('assets/generic/icons_social/social_instagram.svg')",
+        'audio-muted': "url('assets/generic/icons_sound/sound_off_white.svg')",
+        'audio-unmuted': "url('assets/generic/icons_sound/sound_on_white.svg')",
+
       },
       fontFamily: {
         'paytone': ['"Paytone One"','ui-sans-serif', 'system-ui'],

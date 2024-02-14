@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { GameQuestion } from "@/components/GameQuestion";
 import { LearningModule, SplashScreenModule, learningModules } from "@/utils/scenes";
 import { Game } from "./components/Game";
+import { BackgroundAudio } from "./components/BackgroundAudio";
 import { SplashScreen } from "./components/SplashScreen";
 const App = () => {
   const [learningModule, setLearningModule] = useState(0);
@@ -18,12 +18,10 @@ const App = () => {
 
     default:
       return (
-        <Game
-          learningModule={learningModules[learningModule] as LearningModule}
-          onNextGame={handleNextGame}
-          key={learningModule}
-          moreGames={learningModule < learningModules.length - 1}
-        />
+        <main className="game">
+    <Game learningModule={learningModules[learningModule] as LearningModule} onNextGame={handleNextGame} key={learningModule} moreGames={learningModule < learningModules.length - 1} />
+    <BackgroundAudio src={learningModules[learningModule].audio.music} />
+  </main>
       );
   }
 };

@@ -36,7 +36,7 @@ export const Game = (props: props) => {
     setQuestionCompleted(false);
   };
   return (
-    <section className="game">
+    <section>
       <>
         <GameQuestion
           question={props.learningModule.questions[currentQuestion]}
