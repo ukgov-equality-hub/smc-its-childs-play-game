@@ -1,4 +1,4 @@
-type Audio = {
+export type Audio = {
   music: string;
   question: string;
   correct: string;
@@ -10,6 +10,7 @@ export type Answers = {
   correctAnswer: string;
   correctAnswerResponse: string;
   incorrectAnswerResponse: string;
+  audio: Audio;
 };
 export type SpeechBubble = {
   type: "top" | "bottomLeft" | "bottomRight" | "left";
@@ -58,11 +59,16 @@ export const learningModules: LearningModule[] = [
           correctAnswer: "3",
           correctAnswerResponse: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
+          audio: {
+            music: "",
+            question: "assets/scene_01/sound/sound_frog.mp3",
+            correct: "assets/scene_01/sound/sound_frog.mp3",
+            wrong: "assets/scene_01/wrong.mp3",
+          },
         },
-
         audio: {
           music: "assets/generic/sound/sound_soundtrack.mp3",
-          question: "question.mp3",
+          question: "assets/scene_01/sound/sound_frog.mp3",
           correct: "correct.mp3",
           wrong: "wrong.mp3",
         },
@@ -82,10 +88,16 @@ export const learningModules: LearningModule[] = [
           correctAnswer: "2",
           correctAnswerResponse: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
+          audio: {
+            music: "assets/generic/sound/sound_soundtrack.mp3",
+            question: "question.mp3",
+            correct: "assets/scene_01/sound/sound_buzz.mp3",
+            wrong: "wrong.mp3",
+          },
         },
         audio: {
           music: "assets/generic/sound/sound_soundtrack.mp3",
-          question: "question.mp3",
+          question: "assets/scene_01/sound/sound_buzz.mp3",
           correct: "correct.mp3",
           wrong: "wrong.mp3",
         },
