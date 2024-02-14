@@ -20,7 +20,7 @@ export const Game = (props: props) => {
     }
   }
   return (
-   <section className="game">
+   <section>
    <GameQuestion question={question}/>
    <GameAnswers answer={question.answer} onCompleted={handleQuestionCompleted} key={currentQuestion}></GameAnswers>
    </section>

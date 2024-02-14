@@ -37,7 +37,7 @@ export const learningModules: LearningModule[] = [
     learningTip:
       "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",
     audio: {
-      music: "background.mp3",
+      music: "assets/generic/sound/sound_soundtrack.mp3",
       question: "question.mp3",
       correct: "correct.mp3",
       wrong: "wrong.mp3",
