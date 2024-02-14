@@ -200,23 +200,23 @@ body {
   box-sizing: border-box;
 }
 
-.game__speechBubble__bottomRight p {
+.game__speechBubble--bottomRight p {
   padding-left: 10px;
   padding-right: 20px;
   padding-bottom: 30px;
 }
 
-.game__speechBubble__bottomRight {
+.game__speechBubble--bottomRight {
   width: 228px;
   height: 154px;
 }
 
-.game__speechBubble__bottomLeft p {
+.game__speechBubble--bottomLeft p {
   padding-left: 30px;
   padding-right: 20px;
   padding-bottom: 20px;
 }
-.game__speechBubble__bottomLeft {
+.game__speechBubble--bottomLeft {
   width: 244px;
   height: 153px;
 }
