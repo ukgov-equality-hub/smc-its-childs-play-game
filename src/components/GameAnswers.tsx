@@ -17,12 +17,12 @@ export const GameAnswers = (props: props) => {
 
   const handleSelectAnswer = (selection: string) => {
     if (selection == props.answer.correctAnswer) {
+      setCorrectAnswer(true);
       setMessage(props.answer.correctAnswerResponse);
       setShowNext(true);
-      setCorrectAnswer(true);
     } else {
-      setMessage(props.answer.incorrectAnswerResponse);
       setCorrectAnswer(false);
+      setMessage(props.answer.incorrectAnswerResponse);
     }
   };
 

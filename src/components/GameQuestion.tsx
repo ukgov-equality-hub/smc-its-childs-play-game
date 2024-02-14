@@ -37,7 +37,7 @@ const speechBubbleClass = `game__speechBubble--${question.speechBubble.type}`
           <p className="-rotate-bubble-text">{question.question}</p>
         </div>
       </section>
-      <Audio src={question.audio.question} autoplay key={question.audio.question} />
+      <Audio src={question.audio} autoplay key={question.audio} />
     </>
   );
 };

@@ -43,7 +43,7 @@ const App = () => {
     <main className="game">
       {renderModule()}
       <BackgroundAudio
-        src={(learningModules[learningModule] as any).audio.music} controls={learningModule >= 1}
+        src={(learningModules[0] as SplashScreenModule).backgroundAudio} controls={learningModule >= 1}
       />
     </main>
   );
