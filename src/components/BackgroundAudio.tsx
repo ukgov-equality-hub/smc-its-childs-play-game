@@ -5,6 +5,7 @@ import { Audio } from "@/components/Audio";
 
 interface props {
   src: string;
+  controls?: boolean;
 }
 
 export const BackgroundAudio = (props: props) => {
@@ -16,7 +17,9 @@ export const BackgroundAudio = (props: props) => {
 
   return (
     <>
+    {props.controls && (
       <button className={`absolute w-10 h-10 top-4 left-4 z-50 ${isMuted ? 'bg-audio-muted' : 'bg-audio-unmuted' }`} onClick={handleMuted}></button>
+    )}
 
       <Audio src={props.src} autoplay loop volume={0.5} muted={isMuted} />
     </>
