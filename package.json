@@ -1,6 +1,7 @@
 {
   "name": "smc-its-childs-play-game",
   "description": "The game for the Social Mobility Commission's It's Child's Play campaign",
+  "version":"0.1.0",
   "author": "UK Government's Equality Hub / Social Mobility Commission",
   "license": "Open Government Licence v3 https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
   "scripts": {

@@ -7,7 +7,7 @@ interface Props {
 
 export const GameQuestion = ({ question }: { question: Question }) => {
 
-const speechBubbleClass = `game__speechBubble__${question.speechBubble.type}`
+const speechBubbleClass = `game__speechBubble--${question.speechBubble.type}`
 
   return (
     <section>
