@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { LearningModule, SplashScreenModule, learningModules } from "@/utils/scenes";
+import {
+  LearningModule,
+  SplashScreenModule,
+  learningModules,
+} from "@/utils/scenes";
 import { Game } from "./components/Game";
 import { BackgroundAudio } from "./components/BackgroundAudio";
 import { SplashScreen } from "./components/SplashScreen";
@@ -12,17 +16,36 @@ const App = () => {
       setLearningModule(0);
     }
   };
-  switch (learningModules[learningModule].type) {
-    case "SplashScreenModule":
-      return <SplashScreen splashScreen={learningModules[learningModule] as SplashScreenModule} onNextGame={handleNextGame} />
 
-    default:
-      return (
-        <main className="game">
-    <Game learningModule={learningModules[learningModule] as LearningModule} onNextGame={handleNextGame} key={learningModule} moreGames={learningModule < learningModules.length - 1} />
-    <BackgroundAudio src={learningModules[learningModule].audio.music} />
-  </main>
-      );
-  }
+  const renderModule = () => {
+    switch (learningModules[learningModule].type) {
+      case "SplashScreenModule":
+        return (
+          <SplashScreen
+            splashScreen={learningModules[learningModule] as SplashScreenModule}
+            onNextGame={handleNextGame}
+          />
+        );
+
+      default:
+        return (
+          <Game
+            learningModule={learningModules[learningModule] as LearningModule}
+            onNextGame={handleNextGame}
+            key={learningModule}
+            moreGames={learningModule < learningModules.length - 1}
+          />
+        );
+    }
+  };
+
+  return (
+    <main className="game">
+      {renderModule()}
+      <BackgroundAudio
+        src={(learningModules[learningModule] as any).audio.music} controls={learningModule >= 1}
+      />
+    </main>
+  );
 };
 export default App;

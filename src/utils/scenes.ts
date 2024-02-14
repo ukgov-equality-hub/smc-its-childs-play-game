@@ -46,7 +46,7 @@ export type SplashScreenModule = {
   message: string;
   buttonText: string;
   cloudOpacity: string;
-
+  audio: Audio;
 }
 
 function createLearningModule(module: LearningModule): LearningModule {
@@ -71,7 +71,13 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
     foregroundImage:"assets/scene_00/bg_00.png",
     cloudOpacity:"80%",
     message:"Learning fun for everyone",
-    buttonText: "Play"
+    buttonText: "Play",
+    audio: {
+      music: "assets/generic/sound/sound_soundtrack.mp3",
+      question: "question.mp3",
+      correct: "correct.mp3",
+      wrong: "wrong.mp3",
+    },
   } as SplashScreenModule),
   createLearningModule({
     learningTip:
