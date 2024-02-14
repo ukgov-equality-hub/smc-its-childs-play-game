@@ -10,7 +10,7 @@ export type Answers = {
   correctAnswer: string;
   correctAnswerResponse: string;
   incorrectAnswerResponse: string;
-}
+};
 export type SpeechBubble = {
   type: "top" | "bottomLeft" | "bottomRight" | "left";
   image: string;
@@ -22,14 +22,14 @@ export type Question = {
   speechBubble: SpeechBubble;
   cloudOpacity: string;
   question: string;
-  answer: Answers
+  answer: Answers;
+  audio: Audio;
 };
 
 export type LearningModule = {
   learningTip: string;
   audio: Audio;
   questions: Question[];
-
 };
 
 export const learningModules: LearningModule[] = [
@@ -53,13 +53,19 @@ export const learningModules: LearningModule[] = [
         },
         cloudOpacity: "20%",
         question: "Can you count the frogs?",
-        answer:{
+        answer: {
           choices: ["7", "2", "5", "3"],
           correctAnswer: "3",
           correctAnswerResponse: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
-        }
+        },
 
+        audio: {
+          music: "assets/generic/sound/sound_soundtrack.mp3",
+          question: "question.mp3",
+          correct: "correct.mp3",
+          wrong: "wrong.mp3",
+        },
       },
       {
         backgroundImage: "assets/scene_01/sky_01.jpg",
@@ -71,12 +77,18 @@ export const learningModules: LearningModule[] = [
         },
         cloudOpacity: "20%",
         question: "Can you count the dragonflies?",
-        answer:{
+        answer: {
           choices: ["7", "2", "5", "3"],
           correctAnswer: "2",
           correctAnswerResponse: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
-        }
+        },
+        audio: {
+          music: "assets/generic/sound/sound_soundtrack.mp3",
+          question: "question.mp3",
+          correct: "correct.mp3",
+          wrong: "wrong.mp3",
+        },
       },
     ],
   },
