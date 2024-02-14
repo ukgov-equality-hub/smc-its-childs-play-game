@@ -21,16 +21,16 @@ export const GameAnswer = ({
   };
 
   const unselectedClasses = "bg-white";
-  const selectedIncorrectClasses = "opacity-30";
+  const selectedIncorrectClasses = "opacity-20 text-white";
 
   const answerClasses = () => selectionState == undefined ? unselectedClasses : selectionState == false ? selectedIncorrectClasses : null;
 
   return (
-    <div
-      className={`w-12 h-12 flex items-center justify-center rounded-full cursor-pointer ${answerClasses()}`}
+    <p
+      className={`py-3 px-5 flex-1 text-center items-center justify-center rounded-full cursor-pointer text-xl ${answerClasses()}`}
       onClick={() => handleSelectAnswer(item)}
     >
       {item}
-    </div>
+    </p>
   );
 };

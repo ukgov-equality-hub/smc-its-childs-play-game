@@ -16,7 +16,7 @@ export const Game = (props: props) => {
     "question"
   );
   const [questionCompleted, setQuestionCompleted] = useState(false);
-
+const positonX = (props.index) * 320;
   const handleQuestionCompleted = () => {
     if (currentQuestion < props.learningModule.questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -36,7 +36,7 @@ export const Game = (props: props) => {
     setQuestionCompleted(false);
   };
   return (
-    <section>
+    <section >
       <>
         <GameQuestion
           question={props.learningModule.questions[currentQuestion]}
@@ -56,7 +56,7 @@ export const Game = (props: props) => {
             moreGames={props.moreGames}
             onNextGame={handleNextGame}
             onPlayAgain={handlePlayAgain}
-          />
+          > {props.learningModule.learningTip}</GameLearningTip>
         </>
       )}
     </section>
