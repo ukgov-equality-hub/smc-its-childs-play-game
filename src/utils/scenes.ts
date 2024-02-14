@@ -1,3 +1,8 @@
+interface Module {
+ kind: string;
+
+}
+
 type Audio = {
   music: string;
   question: string;
@@ -26,14 +31,49 @@ export type Question = {
 };
 
 export type LearningModule = {
+  type: "LearningModule";
   learningTip: string;
   audio: Audio;
   questions: Question[];
 
 };
 
-export const learningModules: LearningModule[] = [
-  {
+export type SplashScreenModule = {
+  type: "SplashScreenModule";
+  logo: string;
+  backgroundImage: string;
+  foregroundImage: string;
+  message: string;
+  buttonText: string;
+  cloudOpacity: string;
+
+}
+
+function createLearningModule(module: LearningModule): LearningModule {
+  return {
+    ...module,
+    type: 'LearningModule',
+  };
+}
+
+function createSplashScreenModule(module: SplashScreenModule): SplashScreenModule {
+  return {
+    
+    ...module,
+    type: 'SplashScreenModule'
+  };
+}
+
+export const learningModules: Array<LearningModule | SplashScreenModule> = [
+  createSplashScreenModule( {
+    logo:"assets/scene_00/logo.svg",
+    backgroundImage:"assets/scene_00/sky_00.jpg",
+    foregroundImage:"assets/scene_00/bg_00.png",
+    cloudOpacity:"80%",
+    message:"Learning fun for everyone",
+    buttonText: "Play"
+  } as SplashScreenModule),
+  createLearningModule({
     learningTip:
       "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",
     audio: {
@@ -79,8 +119,8 @@ export const learningModules: LearningModule[] = [
         }
       },
     ],
-  },
-  {
+  } as LearningModule),
+  createLearningModule({
     learningTip:
       "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",
     audio: {
@@ -126,5 +166,5 @@ export const learningModules: LearningModule[] = [
         }
       },
     ],
-  },
+  } as LearningModule),
 ];
