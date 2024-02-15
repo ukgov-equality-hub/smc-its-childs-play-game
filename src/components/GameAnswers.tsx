@@ -19,10 +19,9 @@ export const GameAnswers = (props: props) => {
   const handleSelectAnswer = (selection: string) => {
     if (selection == props.answer.correctAnswer) {
       setCorrectAnswer(true);
-      if (props.moreQuestions){
+      if (props.moreQuestions) {
         setMessage(props.answer.correctAnswerMoreQuestionPrompt);
-
-      } else{
+      } else {
         setMessage(props.answer.correctAnswerResponse);
       }
       setShowNext(true);
@@ -39,33 +38,43 @@ export const GameAnswers = (props: props) => {
   return (
     <div className="w-full h-[171px] bg-answer-drawer bg-contain absolute bottom-0 font-paytone text-smc-blue pt-16 z-10">
       {props.completed == false && (
-        <div className="bottom-5 relative">
-          <h2 className="mt-3  mb-3 text-center text-white font-cabinet-grotesk-bold text-xl">
-            {message}
-          </h2>
-
-          {showNext == false && (
-            <div className="flex gap-x-2 items-center justify-center px-10">
-              {props.answer.choices.map((item, index) => (
-                <GameAnswer
-                  item={item}
-                  onSelect={() => handleSelectAnswer(item)}
-                  correctAnswer={props.answer.correctAnswer == item}
-                  key={index}
-                />
-              ))}
+        <>
+          {correctAnswer && (
+            <div className="flex gap-x-2 items-center justify-center">
+              <p className="-mt-16 mb-2 py-3 px-5 text-center items-center justify-center rounded-full cursor-pointer text-xl bg-smc-blue text-white border-2 border-white">
+                {props.answer.correctAnswer}
+              </p>
             </div>
           )}
 
-          {showNext && (
-            <>
-              <div className="flex gap-x-2 items-center justify-center mx-24">
-                <Button onClick={handleClickNext}>Next</Button>{" "}
+          <div className="bottom-5 relative">
+            <h2 className="mt-5 mb-3 text-center text-white font-cabinet-grotesk-bold text-xl">
+              {message}
+            </h2>
+
+            {showNext == false && (
+              <div className="flex gap-x-2 items-center justify-center px-10">
+                {props.answer.choices.map((item, index) => (
+                  <GameAnswer
+                    item={item}
+                    onSelect={() => handleSelectAnswer(item)}
+                    correctAnswer={props.answer.correctAnswer == item}
+                    key={index}
+                  />
+                ))}
               </div>
-              <Audio src={props.answer.audio.correct} play={correctAnswer} />
-            </>
-          )}
-        </div>
+            )}
+
+            {showNext && (
+              <>
+                <div className="flex gap-x-2 items-center justify-center mx-24">
+                  <Button onClick={handleClickNext}>Next</Button>{" "}
+                </div>
+                <Audio src={props.answer.audio.correct} play={correctAnswer} />
+              </>
+            )}
+          </div>
+        </>
       )}
     </div>
   );
