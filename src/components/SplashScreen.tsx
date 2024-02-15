@@ -1,6 +1,7 @@
 import React from "react";
 import { SplashScreenModule, type Question } from "../utils/scenes";
 import { Button } from "./Button";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 interface Props {
  // index: number;
@@ -26,7 +27,7 @@ export const SplashScreen = ({
         <div className="game__clouds">
           <img
             style={{ opacity: splashScreen.cloudOpacity }}
-            src="/assets/generic/clouds/clouds.png"
+            src={BASE_URL + "assets/generic/clouds/clouds.png"}
             alt=""
           />
         </div>

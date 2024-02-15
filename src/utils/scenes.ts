@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 export type Audio = {
   correct: string;
   wrong?: string;
@@ -63,13 +65,13 @@ function createSplashScreenModule(
 
 export const learningModules: Array<LearningModule | SplashScreenModule> = [
   createSplashScreenModule({
-    logo: "assets/scene_00/logo.svg",
-    backgroundImage: "assets/scene_00/sky_00.jpg",
-    foregroundImage: "assets/scene_00/bg_00.png",
+    logo: BASE_URL + "assets/scene_00/logo.svg",
+    backgroundImage: BASE_URL + "assets/scene_00/sky_00.jpg",
+    foregroundImage: BASE_URL + "assets/scene_00/bg_00.png",
     cloudOpacity: "80%",
     message: "Learning fun for everyone",
     buttonText: "Play",
-    backgroundAudio: "assets/generic/sound/sound_soundtrack.mp3",
+    backgroundAudio: BASE_URL + "assets/generic/sound/sound_soundtrack.mp3",
   } as SplashScreenModule),
   createLearningModule({
     learningTip:
@@ -78,16 +80,16 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
       "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Count.pdf",
     questions: [
       {
-        backgroundImage: "assets/scene_01/sky_01.jpg",
-        foregroundImage: "assets/scene_01/bg_01a.png",
+        backgroundImage: BASE_URL + "assets/scene_01/sky_01.jpg",
+        foregroundImage: BASE_URL + "assets/scene_01/bg_01a.png",
         speechBubble: {
-          image: "assets/scene_01/speech_buble_01a.png",
+          image: BASE_URL + "assets/scene_01/speech_buble_01a.png",
           position: ["18%", "4%"],
           type: "bottomRight",
         },
         cloudOpacity: "20%",
         question: "Can you count the frogs?",
-        audio: "assets/scene_01/sound/sound_frog.mp3",
+        audio: BASE_URL + "assets/scene_01/sound/sound_frog.mp3",
         answer: {
           choices: ["7", "2", "5", "3"],
           prompt: "Select a number",
@@ -96,21 +98,21 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_01/sound/sound_frog.mp3",
+            correct: BASE_URL + "assets/scene_01/sound/sound_frog.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_01/sky_01.jpg",
-        foregroundImage: "assets/scene_01/bg_01b.png",
+        backgroundImage: BASE_URL + "assets/scene_01/sky_01.jpg",
+        foregroundImage: BASE_URL + "assets/scene_01/bg_01b.png",
         speechBubble: {
-          image: "assets/scene_01/speech_buble_01b.png",
+          image: BASE_URL + "assets/scene_01/speech_buble_01b.png",
           position: ["9%", "13%"],
           type: "bottomLeft",
         },
         cloudOpacity: "20%",
         question: "Can you count the dragonflies?",
-        audio: "assets/scene_01/sound/sound_buzz.mp3",
+        audio: BASE_URL + "assets/scene_01/sound/sound_buzz.mp3",
         answer: {
           choices: ["7", "2", "5", "3"],
           prompt: "Select a number",
@@ -119,7 +121,7 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_01/sound/sound_buzz.mp3",
+            correct: BASE_URL + "assets/scene_01/sound/sound_buzz.mp3",
           },
         },
       },
@@ -132,16 +134,16 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
       "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Play.pdf",
     questions: [
       {
-        backgroundImage: "assets/scene_02/sky_02.jpg",
-        foregroundImage: "assets/scene_02/bg_02a.png",
+        backgroundImage: BASE_URL + "assets/scene_02/sky_02.jpg",
+        foregroundImage: BASE_URL + "assets/scene_02/bg_02a.png",
         speechBubble: {
-          image: "assets/scene_02/speech_buble_02.png",
+          image: BASE_URL + "assets/scene_02/speech_buble_02.png",
           position: ["44%", "17%"],
           type: "top",
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_horn.mp3",
+        audio: BASE_URL + "assets/scene_02/sounds/sound_bus_horn.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
           prompt: "Select a colour",
@@ -150,21 +152,21 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_02/sounds/sound_bus_horn.mp3",
+            correct: BASE_URL + "assets/scene_02/sounds/sound_bus_horn.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_02/sky_02.jpg",
-        foregroundImage: "assets/scene_02/bg_02b.png",
+        backgroundImage: BASE_URL + "assets/scene_02/sky_02.jpg",
+        foregroundImage: BASE_URL + "assets/scene_02/bg_02b.png",
         speechBubble: {
-          image: "assets/scene_02/speech_buble_02.png",
+          image: BASE_URL + "assets/scene_02/speech_buble_02.png",
           position: ["44%", "17%"],
           type: "top",
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_bell.mp3",
+        audio: BASE_URL + "assets/scene_02/sounds/sound_bus_bell.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
           prompt: "Select a colour",
@@ -173,21 +175,21 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_02/sounds/sound_bus_bell.mp3",
+            correct: BASE_URL + "assets/scene_02/sounds/sound_bus_bell.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_02/sky_02.jpg",
-        foregroundImage: "assets/scene_02/bg_02c.png",
+        backgroundImage: BASE_URL + "assets/scene_02/sky_02.jpg",
+        foregroundImage: BASE_URL + "assets/scene_02/bg_02c.png",
         speechBubble: {
-          image: "assets/scene_02/speech_buble_02.png",
+          image: BASE_URL + "assets/scene_02/speech_buble_02.png",
           position: ["44%", "17%"],
           type: "top",
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_horn.mp3",
+        audio: BASE_URL + "assets/scene_02/sounds/sound_bus_horn.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
           prompt: "Select a colour",
@@ -209,10 +211,10 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
       "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Chat.pdf",
     questions: [
       {
-        backgroundImage: "assets/scene_03/sky_03.jpg",
-        foregroundImage: "assets/scene_03/bg_03a.png",
+        backgroundImage: BASE_URL + "assets/scene_03/sky_03.jpg",
+        foregroundImage: BASE_URL + "assets/scene_03/bg_03a.png",
         speechBubble: {
-          image: "assets/scene_03/speech_buble_03a.png",
+          image: BASE_URL + "assets/scene_03/speech_buble_03a.png",
           position: ["24%", "34%"],
           type: "leftTop",
         },
@@ -226,15 +228,15 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_03/sounds/sound_cow.mp3",
+            correct: BASE_URL + "assets/scene_03/sounds/sound_cow.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_03/sky_03.jpg",
-        foregroundImage: "assets/scene_03/bg_03b.png",
+        backgroundImage: BASE_URL + "assets/scene_03/sky_03.jpg",
+        foregroundImage: BASE_URL + "assets/scene_03/bg_03b.png",
         speechBubble: {
-          image: "assets/scene_03/speech_buble_03bc.png",
+          image: BASE_URL + "assets/scene_03/speech_buble_03bc.png",
           position: ["21%", "34%"],
           type: "leftBottom",
         },
@@ -248,15 +250,15 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_03/sounds/sound_sheep.mp3",
+            correct: BASE_URL + "assets/scene_03/sounds/sound_sheep.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_03/sky_03.jpg",
-        foregroundImage: "assets/scene_03/bg_03c.png",
+        backgroundImage: BASE_URL + "assets/scene_03/sky_03.jpg",
+        foregroundImage: BASE_URL + "assets/scene_03/bg_03c.png",
         speechBubble: {
-          image: "assets/scene_03/speech_buble_03bc.png",
+          image: BASE_URL + "assets/scene_03/speech_buble_03bc.png",
           position: ["21%", "34%"],
           type: "leftBottom",
         },
@@ -270,7 +272,7 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_03/sounds/sound_dog.mp3",
+            correct: BASE_URL + "assets/scene_03/sounds/sound_dog.mp3",
           },
         },
       },

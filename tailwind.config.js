@@ -1,4 +1,5 @@
 module.exports = {
+  important: '#smc-game',
   content: ["./dist/**/*.html", "./src/**/*.{js,jsx,ts,tsx}", "./*.html"],
   theme: {
     variants: {
