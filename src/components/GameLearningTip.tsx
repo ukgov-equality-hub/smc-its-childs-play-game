@@ -138,7 +138,7 @@ export const GameLearningTip = (props: props) => {
           <>
             <Button onClick={handlePlayAgain}>Play again</Button>
             <Button onClick={handleNextGAme} theme="secondary">
-              Start again
+              Back to start
             </Button>
           </>
         )}
