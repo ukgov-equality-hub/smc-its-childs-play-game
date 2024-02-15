@@ -7,6 +7,7 @@ import {
 import { Game } from "./components/Game";
 import { BackgroundAudio } from "./components/BackgroundAudio";
 import { SplashScreen } from "./components/SplashScreen";
+import { AnimatePresence, motion } from "framer-motion";
 const App = () => {
   const [learningModule, setLearningModule] = useState(0);
   const handleNextGame = () => {
@@ -17,12 +18,26 @@ const App = () => {
     }
   };
 
-  const renderModule = () => {
-    switch (learningModules[learningModule].type) {
+  const pageVariants = {
+    initial: { x: "320px" }, // Starts off-screen to the right
+    in: { x: 0 }, // Center screen
+    out: { x: "-320px" },
+    disabled: { x: 0 }, // Moves off-screen to the left
+  };
+
+  const pageTransition = {
+    type: "tween",
+    ease: "easeOut", // Use a linear ease for a smooth, consistent speed
+    duration: 0.3,
+  };
+
+  const renderModule = (item: LearningModule | SplashScreenModule) => {
+    switch (item.type) {
       case "SplashScreenModule":
         return (
           <SplashScreen
-            splashScreen={learningModules[learningModule] as SplashScreenModule}
+            // index={index}
+            splashScreen={item as SplashScreenModule}
             onNextGame={handleNextGame}
           />
         );
@@ -30,7 +45,8 @@ const App = () => {
       default:
         return (
           <Game
-            learningModule={learningModules[learningModule] as LearningModule}
+            // index={index}
+            learningModule={item as LearningModule}
             onNextGame={handleNextGame}
             key={learningModule}
             moreGames={learningModule < learningModules.length - 1}
@@ -41,9 +57,24 @@ const App = () => {
 
   return (
     <main className="game">
-      {renderModule()}
+      <AnimatePresence mode="popLayout">
+        {/* {learningModules.map((item, index) => ( */}
+        <motion.section
+          className="relative"
+          variants={pageVariants}
+          initial={learningModule == 0 ? "disabled" : "initial"}
+          animate="in"
+          exit="out"
+          transition={pageTransition}
+          key={learningModule}
+        >
+          {renderModule(learningModules[learningModule])}
+        </motion.section>
+        {/* ))} */}
+      </AnimatePresence>
       <BackgroundAudio
-        src={(learningModules[learningModule] as any).audio.music} controls={learningModule >= 1}
+        src={(learningModules[learningModule] as any).audio.music}
+        controls={learningModule >= 1}
       />
     </main>
   );

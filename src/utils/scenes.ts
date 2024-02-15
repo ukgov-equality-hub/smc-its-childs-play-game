@@ -46,7 +46,7 @@ export type SplashScreenModule = {
   message: string;
   buttonText: string;
   cloudOpacity: string;
-  audio: Audio;
+  backgroundAudio: string;
 }
 
 function createLearningModule(module: LearningModule): LearningModule {
@@ -65,20 +65,15 @@ function createSplashScreenModule(module: SplashScreenModule): SplashScreenModul
 }
 
 export const learningModules: Array<LearningModule | SplashScreenModule> = [
-  createSplashScreenModule( {
-    logo:"assets/scene_00/logo.svg",
-    backgroundImage:"assets/scene_00/sky_00.jpg",
-    foregroundImage:"assets/scene_00/bg_00.png",
-    cloudOpacity:"80%",
-    message:"Learning fun for everyone",
-    buttonText: "Play",
-    audio: {
-      music: "assets/generic/sound/sound_soundtrack.mp3",
-      question: "question.mp3",
-      correct: "correct.mp3",
-      wrong: "wrong.mp3",
-    },
-  } as SplashScreenModule),
+    createSplashScreenModule({
+      logo: "assets/scene_00/logo.svg",
+      backgroundImage: "assets/scene_00/sky_00.jpg",
+      foregroundImage: "assets/scene_00/bg_00.png",
+      cloudOpacity: "80%",
+      message: "Learning fun for everyone",
+      buttonText: "Play",
+      backgroundAudio: "assets/generic/sound/sound_soundtrack.mp3",
+    } as SplashScreenModule),
   createLearningModule({
     learningTip:
       "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",

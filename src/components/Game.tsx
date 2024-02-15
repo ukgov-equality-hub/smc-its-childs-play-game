@@ -3,8 +3,10 @@ import { LearningModule, type Question } from "../utils/scenes";
 import { GameQuestion } from "./GameQuestion";
 import { GameAnswers } from "./GameAnswers";
 import { GameLearningTip } from "./GameLearningTip";
+import { AnimatePresence } from "framer-motion";
 
 interface props {
+  //index:number;
   learningModule: LearningModule;
   onNextGame: () => void;
   moreGames: boolean;
@@ -16,7 +18,6 @@ export const Game = (props: props) => {
     "question"
   );
   const [questionCompleted, setQuestionCompleted] = useState(false);
-
   const handleQuestionCompleted = () => {
     if (currentQuestion < props.learningModule.questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -27,13 +28,16 @@ export const Game = (props: props) => {
   };
   const handleNextGame = () => {
     props.onNextGame();
-    setCurrentQuestion(0);
     setCurrentScreen("question");
+
+    setCurrentQuestion(0);
+
   };
   const handlePlayAgain = () => {
-    setCurrentQuestion(0);
-    setCurrentScreen("question");
     setQuestionCompleted(false);
+    setCurrentScreen("question");
+    setCurrentQuestion(0);
+
   };
   return (
     <section>
@@ -51,13 +55,14 @@ export const Game = (props: props) => {
       </>
 
       {currentScreen == "tooltip" && (
-        <>
+        <AnimatePresence>
           <GameLearningTip
             moreGames={props.moreGames}
             onNextGame={handleNextGame}
-            onPlayAgain={handlePlayAgain}
-          />
-        </>
+            onPlayAgain={handlePlayAgain}>
+          {props.learningModule.learningTip}
+          </GameLearningTip>
+        </AnimatePresence>
       )}
     </section>
   );
