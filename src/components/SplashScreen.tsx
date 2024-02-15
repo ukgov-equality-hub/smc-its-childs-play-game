@@ -42,7 +42,7 @@ export const SplashScreen = ({
           </h2>
           <div className="flex gap-x-2 items-center justify-center mx-24">
               {" "}
-              <Button onClick={onNextGame}>Next</Button>{" "}
+              <Button onClick={onNextGame}>{splashScreen.buttonText}</Button>{" "}
             </div>
         </div>
       </section>
