@@ -11,7 +11,7 @@ interface props {
 }
 
 export const GameAnswers = (props: props) => {
-  const [message, setMessage] = useState("Select a number");
+  const [message, setMessage] = useState(props.answer.prompt);
   const [showNext, setShowNext] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(false);
 
@@ -33,13 +33,13 @@ export const GameAnswers = (props: props) => {
   return (
     <div className="w-full h-[171px] bg-answer-drawer bg-contain absolute bottom-0 font-paytone text-smc-blue pt-16 z-10">
       {props.completed == false && (
-        <div className="bottom-3 relative">
-          <h2 className="mt-3 mb-3 text-center text-white font-cabinet-grotesk-bold text-xl">
+        <div className="bottom-5 relative">
+          <h2 className="mt-3  mb-3 text-center text-white font-cabinet-grotesk-bold text-xl">
             {message}
           </h2>
 
           {showNext == false && (
-            <div className="flex gap-x-2 items-center justify-center">
+            <div className="flex gap-x-2 items-center justify-center px-10">
               {props.answer.choices.map((item, index) => (
                 <GameAnswer
                   item={item}

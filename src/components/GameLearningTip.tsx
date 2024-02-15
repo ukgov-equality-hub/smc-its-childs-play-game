@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
 import { Button } from "./Button";
 
 interface props {
+  children: ReactNode
   onNextGame: () => void;
   onPlayAgain: () => void;
   moreGames: boolean;
@@ -8,13 +10,12 @@ interface props {
 
 export const GameLearningTip = (props: props) => {
   return (
-    <div className="w-full h-full backdrop-blur-xl absolute z-20 top-0 left-0">
+    <div className="w-full h-full backdrop-blur-xl absolute z-30 top-0 left-0">
       <div className="relative rounded-xl mx-5 my-11 bg-smc-blue text-white text-center text-xl font-cabinet-grotesk">
         <div className="px-5 py-7">
           <h2 className="font-paytone pb-5">Learning tip</h2>
           <p className=" font-bold  mx-1">
-            Counting games can be anything! Get them to count their favourite
-            toys, sweets in a bag or birds in the park.
+         {props.children}
           </p>
           <a className="py-3 font-black inline-block">More tips</a>
           <div className="flex gap-x-3 items-center justify-center pt-3">
