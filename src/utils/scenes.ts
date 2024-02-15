@@ -29,6 +29,7 @@ export type Question = {
 export type LearningModule = {
   type: "LearningModule";
   learningTip: string;
+  learningTipLink?: string;
   questions: Question[];
 };
 
@@ -72,6 +73,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
   createLearningModule({
     learningTip:
       "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",
+      learningTipLink:
+      "https://www.gov.uk",
     questions: [
       {
         backgroundImage: "assets/scene_01/sky_01.jpg",
