@@ -1,9 +1,11 @@
 import { ReactNode, useState } from "react";
 import { Button } from "./Button";
 import { motion } from "framer-motion";
+import { TwitterShareButton, InstapaperShareButton } from "react-share";
 
 interface props {
   children: ReactNode;
+  linkUrl?: string;
   onNextGame: () => void;
   onPlayAgain: () => void;
   moreGames: boolean;
@@ -74,15 +76,14 @@ export const GameLearningTip = (props: props) => {
   const handleNextGAme = () => {
     setReverseAnimation(true);
 
-      props.onNextGame();
-    
+    props.onNextGame();
   };
 
   const handlePlayAgain = () => {
     setReverseAnimation(true);
     setTimeout(() => {
       props.onPlayAgain();
-    },400)
+    }, 400);
   };
   const pageTransition = {
     type: "tween",
@@ -110,10 +111,18 @@ export const GameLearningTip = (props: props) => {
         <div className="px-5 py-7">
           <h2 className="font-paytone pb-5">Learning tip</h2>
           <p className=" font-bold  mx-1">{props.children}</p>
-          <a className="py-3 font-black inline-block">More tips</a>
+          {props.linkUrl != null && (
+            <a className="py-3 font-black inline-block" href={props.linkUrl} target="_blank">
+              More tips
+            </a>
+          )}
           <div className="flex gap-x-3 items-center justify-center pt-3">
-            <a className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-social-x text-white"></a>
-            <a className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-social-instagram"></a>
+            <TwitterShareButton url={window.location.href}>
+              <div className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-social-x text-white"></div>
+            </TwitterShareButton>
+            <InstapaperShareButton url={window.location.href}>
+              <div className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-social-instagram"></div>
+            </InstapaperShareButton>
           </div>
         </div>
       </motion.div>
