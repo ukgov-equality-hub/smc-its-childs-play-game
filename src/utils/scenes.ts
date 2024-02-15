@@ -8,11 +8,12 @@ export type Answers = {
   prompt: string;
   correctAnswer: string;
   correctAnswerResponse: string;
+  correctAnswerMoreQuestionPrompt: string;
   incorrectAnswerResponse: string;
   audio: Audio;
 };
 export type SpeechBubble = {
-  type: "top" | "bottomLeft" | "bottomRight" | "leftTop"| "leftBottom";
+  type: "top" | "bottomLeft" | "bottomRight" | "leftTop" | "leftBottom";
   image: string;
   position: string[];
 };
@@ -23,7 +24,7 @@ export type Question = {
   cloudOpacity: string;
   question: string;
   answer: Answers;
-  audio: string;
+  audio?: string;
 };
 
 export type LearningModule = {
@@ -61,20 +62,20 @@ function createSplashScreenModule(
 }
 
 export const learningModules: Array<LearningModule | SplashScreenModule> = [
-    createSplashScreenModule({
-      logo: "assets/scene_00/logo.svg",
-      backgroundImage: "assets/scene_00/sky_00.jpg",
-      foregroundImage: "assets/scene_00/bg_00.png",
-      cloudOpacity: "80%",
-      message: "Learning fun for everyone",
-      buttonText: "Play",
-      backgroundAudio: "assets/generic/sound/sound_soundtrack.mp3",
-    } as SplashScreenModule),
+  createSplashScreenModule({
+    logo: "assets/scene_00/logo.svg",
+    backgroundImage: "assets/scene_00/sky_00.jpg",
+    foregroundImage: "assets/scene_00/bg_00.png",
+    cloudOpacity: "80%",
+    message: "Learning fun for everyone",
+    buttonText: "Play",
+    backgroundAudio: "assets/generic/sound/sound_soundtrack.mp3",
+  } as SplashScreenModule),
   createLearningModule({
     learningTip:
       "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",
-      learningTipLink:
-      "https://www.gov.uk",
+    learningTipLink:
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Count.pdf",
     questions: [
       {
         backgroundImage: "assets/scene_01/sky_01.jpg",
@@ -89,9 +90,10 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         audio: "assets/scene_01/sound/sound_frog.mp3",
         answer: {
           choices: ["7", "2", "5", "3"],
-          prompt:"Select a number",
+          prompt: "Select a number",
           correctAnswer: "3",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_01/sound/sound_frog.mp3",
@@ -111,9 +113,10 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         audio: "assets/scene_01/sound/sound_buzz.mp3",
         answer: {
           choices: ["7", "2", "5", "3"],
-          prompt:"Select a number",
+          prompt: "Select a number",
           correctAnswer: "2",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_01/sound/sound_buzz.mp3",
@@ -125,6 +128,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
   createLearningModule({
     learningTip:
       "Chatting to your child about everyday things can really help them! Try asking what colour toys are as you’re tidying.",
+    learningTipLink:
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Play.pdf",
     questions: [
       {
         backgroundImage: "assets/scene_02/sky_02.jpg",
@@ -136,15 +141,16 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_bell.mp3",
+        audio: "assets/scene_02/sounds/sound_bus_horn.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
-          prompt:"Select a colour",
+          prompt: "Select a colour",
           correctAnswer: "Red",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_02/sounds/sound_bus_bell.mp3",
+            correct: "assets/scene_02/sounds/sound_bus_horn.mp3",
           },
         },
       },
@@ -158,15 +164,16 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_horn.mp3",
+        audio: "assets/scene_02/sounds/sound_bus_bell.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
-          prompt:"Select a colour",
+          prompt: "Select a colour",
           correctAnswer: "Blue",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_02/sounds/sound_bus_horn.mp3",
+            correct: "assets/scene_02/sounds/sound_bus_bell.mp3",
           },
         },
       },
@@ -180,15 +187,16 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_bell.mp3",
+        audio: "assets/scene_02/sounds/sound_bus_horn.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
-          prompt:"Select a colour",
+          prompt: "Select a colour",
           correctAnswer: "Yellow",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_02/sounds/sound_bus_bell.mp3",
+            correct: "assets/scene_02/sounds/sound_bus_horn.mp3",
           },
         },
       },
@@ -197,6 +205,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
   createLearningModule({
     learningTip:
       "There’s no ‘right’ way to play! Try acting out a scene from their favourite story or make up a new one.",
+    learningTipLink:
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Chat.pdf",
     questions: [
       {
         backgroundImage: "assets/scene_03/sky_03.jpg",
@@ -208,12 +218,12 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         },
         cloudOpacity: "60%",
         question: "What noise do I make?",
-        audio: "assets/scene_03/sounds/sound_cow.mp3",
         answer: {
           choices: ["Moo", "Baa", "Woof"],
-          prompt:"Select a noise",
+          prompt: "Select a noise",
           correctAnswer: "Moo",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_03/sounds/sound_cow.mp3",
@@ -230,12 +240,12 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         },
         cloudOpacity: "60%",
         question: "What noise do I make?",
-        audio: "assets/scene_03/sounds/sound_sheep.mp3",
         answer: {
           choices: ["Moo", "Baa", "Woof"],
-          prompt:"Select a noise",
+          prompt: "Select a noise",
           correctAnswer: "Baa",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_03/sounds/sound_sheep.mp3",
@@ -252,12 +262,12 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         },
         cloudOpacity: "60%",
         question: "What noise do I make?",
-        audio: "assets/scene_03/sounds/sound_dog.mp3",
         answer: {
           choices: ["Moo", "Baa", "Woof"],
-          prompt:"Select a noise",
+          prompt: "Select a noise",
           correctAnswer: "Woof",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_03/sounds/sound_dog.mp3",
@@ -265,5 +275,5 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
         },
       },
     ],
-  } as LearningModule)
+  } as LearningModule),
 ];

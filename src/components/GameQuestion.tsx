@@ -7,8 +7,7 @@ interface Props {
 }
 
 export const GameQuestion = ({ question }: { question: Question }) => {
-
-const speechBubbleClass = `game__speechBubble--${question.speechBubble.type}`
+  const speechBubbleClass = `game__speechBubble--${question.speechBubble.type}`;
 
   return (
     <>
@@ -37,7 +36,9 @@ const speechBubbleClass = `game__speechBubble--${question.speechBubble.type}`
           <p className="-rotate-bubble-text">{question.question}</p>
         </div>
       </section>
-      <Audio src={question.audio} autoplay key={question.audio} />
+      {question.audio && (
+        <Audio src={question.audio} autoplay key={question.audio} />
+      )}
     </>
   );
 };
