@@ -73,7 +73,7 @@ const App = () => {
         {/* ))} */}
       </AnimatePresence>
       <BackgroundAudio
-        src={(learningModules[learningModule] as any).audio.music}
+        src={(learningModules[0] as SplashScreenModule).backgroundAudio}
         controls={learningModule >= 1}
       />
     </main>
