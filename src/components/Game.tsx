@@ -31,16 +31,16 @@ export const Game = (props: props) => {
     setCurrentScreen("question");
 
     setCurrentQuestion(0);
-
   };
   const handlePlayAgain = () => {
     setQuestionCompleted(false);
     setCurrentScreen("question");
     setCurrentQuestion(0);
-
   };
+
+  console.log(props.learningModule.learningTipLink)
   return (
-    <section >
+    <section>
       <>
         <GameQuestion
           question={props.learningModule.questions[currentQuestion]}
@@ -57,10 +57,12 @@ export const Game = (props: props) => {
       {currentScreen == "tooltip" && (
         <AnimatePresence>
           <GameLearningTip
+            linkUrl={props.learningModule.learningTipLink}
             moreGames={props.moreGames}
             onNextGame={handleNextGame}
-            onPlayAgain={handlePlayAgain}>
-          {props.learningModule.learningTip}
+            onPlayAgain={handlePlayAgain}
+          >
+            {props.learningModule.learningTip}
           </GameLearningTip>
         </AnimatePresence>
       )}
