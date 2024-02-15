@@ -8,6 +8,7 @@ interface props {
   answer: Answers;
   completed: boolean;
   onCompleted: () => void;
+  moreQuestions: boolean;
 }
 
 export const GameAnswers = (props: props) => {
@@ -18,7 +19,12 @@ export const GameAnswers = (props: props) => {
   const handleSelectAnswer = (selection: string) => {
     if (selection == props.answer.correctAnswer) {
       setCorrectAnswer(true);
-      setMessage(props.answer.correctAnswerResponse);
+      if (props.moreQuestions){
+        setMessage(props.answer.correctAnswerMoreQuestionPrompt);
+
+      } else{
+        setMessage(props.answer.correctAnswerResponse);
+      }
       setShowNext(true);
     } else {
       setCorrectAnswer(false);

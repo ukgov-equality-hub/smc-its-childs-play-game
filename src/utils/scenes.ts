@@ -8,6 +8,7 @@ export type Answers = {
   prompt: string;
   correctAnswer: string;
   correctAnswerResponse: string;
+  correctAnswerMoreQuestionPrompt: string;
   incorrectAnswerResponse: string;
   audio: Audio;
 };
@@ -88,7 +89,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["7", "2", "5", "3"],
           prompt:"Select a number",
           correctAnswer: "3",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_01/sound/sound_frog.mp3",
@@ -110,7 +112,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["7", "2", "5", "3"],
           prompt:"Select a number",
           correctAnswer: "2",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_01/sound/sound_buzz.mp3",
@@ -138,7 +141,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["Red", "Yellow", "Blue"],
           prompt:"Select a colour",
           correctAnswer: "Red",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_02/sounds/sound_bus_horn.mp3",
@@ -160,7 +164,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["Red", "Yellow", "Blue"],
           prompt:"Select a colour",
           correctAnswer: "Blue",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_02/sounds/sound_bus_bell.mp3",
@@ -182,7 +187,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["Red", "Yellow", "Blue"],
           prompt:"Select a colour",
           correctAnswer: "Yellow",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_02/sounds/sound_bus_horn.mp3",
@@ -209,7 +215,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["Moo", "Baa", "Woof"],
           prompt:"Select a noise",
           correctAnswer: "Moo",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_03/sounds/sound_cow.mp3",
@@ -230,7 +237,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["Moo", "Baa", "Woof"],
           prompt:"Select a noise",
           correctAnswer: "Baa",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_03/sounds/sound_sheep.mp3",
@@ -251,7 +259,8 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
           choices: ["Moo", "Baa", "Woof"],
           prompt:"Select a noise",
           correctAnswer: "Woof",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_03/sounds/sound_dog.mp3",

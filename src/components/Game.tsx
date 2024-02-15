@@ -51,6 +51,7 @@ export const Game = (props: props) => {
           completed={questionCompleted}
           onCompleted={handleQuestionCompleted}
           key={currentQuestion}
+          moreQuestions={currentQuestion < props.learningModule.questions.length - 1}
         ></GameAnswers>
       </>
 
