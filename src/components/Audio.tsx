@@ -21,20 +21,28 @@ export const Audio = (props: props) => {
     if (audioRef.current) {
       audioRef.current.volume = safeVolume; // Sets initial volume to 50%
 
-      if (props.autoplay){
+      if (props.autoplay) {
         document.addEventListener(
-            "click",
-            () => {
-              if (audioRef.current) {
-                audioRef.current.play();
-              }
-            },
-            { once: true }
-          );
+          "click",
+          () => {
+            if (audioRef.current) {
+              audioRef.current.play();
+            }
+          },
+          { once: true }
+        );
       }
-
     }
   }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+
+      if (props.play) {
+        audioRef.current.play();
+      }
+    }
+  }, [props.play]);
 
   // React to changes in the muted prop
   useEffect(() => {

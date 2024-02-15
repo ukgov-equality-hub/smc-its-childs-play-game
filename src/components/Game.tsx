@@ -40,7 +40,7 @@ export const Game = (props: props) => {
 
   };
   return (
-    <section>
+    <section >
       <>
         <GameQuestion
           question={props.learningModule.questions[currentQuestion]}

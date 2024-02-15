@@ -77,10 +77,55 @@
   box-sizing: border-box;
 }
 
-.game__speechBubble__bottom p {
+.game__speechBubble--bottomRight p {
   padding-left: 10px;
   padding-right: 20px;
   padding-bottom: 30px;
+}
+
+.game__speechBubble--bottomRight {
+  width: 228px;
+  height: 154px;
+}
+
+.game__speechBubble--bottomLeft p {
+  padding-left: 30px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.game__speechBubble--bottomLeft {
+  width: 244px;
+  height: 153px;
+}
+
+.game__speechBubble--top p {
+  padding-left: 30px;
+  padding-right: 20px;
+  padding-top: 40px;
+}
+.game__speechBubble--top {
+  width: 222px;
+  height: 136px;
+}
+
+.game__speechBubble--leftTop p {
+  padding-left: 30px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+.game__speechBubble--leftTop {
+  width: 206px;
+  height: 126px;
+}
+
+.game__speechBubble--leftBottom p {
+  padding-left: 30px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+.game__speechBubble--leftBottom {
+  width: 206px;
+  height: 126px;
 }
 
 @keyframes spin {

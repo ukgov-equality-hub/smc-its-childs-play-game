@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 import { Button } from "./Button";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface props {
   children: ReactNode;
