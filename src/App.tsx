@@ -8,10 +8,20 @@ import { Game } from "./components/Game";
 import { BackgroundAudio } from "./components/BackgroundAudio";
 import { SplashScreen } from "./components/SplashScreen";
 import { AnimatePresence, motion } from "framer-motion";
+
+declare global {
+  interface Window {
+    SMC_child_play_game_start: any; // Use a more specific type instead of any if possible
+  }
+}
+
 const App = () => {
   const [learningModule, setLearningModule] = useState(0);
   const handleNextGame = () => {
     if (learningModules.length > learningModule + 1) {
+      if (learningModule == 0 && window.SMC_child_play_game_start) {
+        window.SMC_child_play_game_start();
+      }
       setLearningModule(learningModule + 1);
     } else {
       setLearningModule(0);
@@ -73,7 +83,8 @@ const App = () => {
         {/* ))} */}
       </AnimatePresence>
       <BackgroundAudio
-        src={(learningModules[0] as SplashScreenModule).backgroundAudio} controls={learningModule >= 1}
+        src={(learningModules[0] as SplashScreenModule).backgroundAudio}
+        controls={learningModule >= 1}
       />
     </main>
   );
