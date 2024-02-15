@@ -2,6 +2,7 @@ import { useState } from "react";
 import { type Answers } from "../utils/scenes";
 import { GameAnswer } from "./GameAnswer";
 import { Button } from "./Button";
+import { Audio } from "@/components/Audio";
 
 interface props {
   answer: Answers;
@@ -12,13 +13,15 @@ interface props {
 export const GameAnswers = (props: props) => {
   const [message, setMessage] = useState("Select a number");
   const [showNext, setShowNext] = useState(false);
-  //const [completed, setCompleted] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState(false);
 
   const handleSelectAnswer = (selection: string) => {
     if (selection == props.answer.correctAnswer) {
+      setCorrectAnswer(true);
       setMessage(props.answer.correctAnswerResponse);
       setShowNext(true);
     } else {
+      setCorrectAnswer(false);
       setMessage(props.answer.incorrectAnswerResponse);
     }
   };
@@ -49,10 +52,12 @@ export const GameAnswers = (props: props) => {
           )}
 
           {showNext && (
-            <div className="flex gap-x-2 items-center justify-center mx-24">
-            {" "}
-            <Button onClick={handleClickNext}>Next</Button>{" "}
-          </div>
+            <>
+              <div className="flex gap-x-2 items-center justify-center mx-24">
+                <Button onClick={handleClickNext}>Next</Button>{" "}
+              </div>
+              <Audio src={props.answer.audio.correct} play={correctAnswer} />
+            </>
           )}
         </div>
       )}
