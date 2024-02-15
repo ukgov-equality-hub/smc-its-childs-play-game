@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 import { Button } from "./Button";
 import { motion } from "framer-motion";
-import { TwitterShareButton, InstapaperShareButton } from "react-share";
+import { TwitterShareButton, FacebookShareButton } from "react-share";
 
 interface props {
   children: ReactNode;
@@ -120,9 +120,9 @@ export const GameLearningTip = (props: props) => {
             <TwitterShareButton url={window.location.href}>
               <div className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-social-x text-white"></div>
             </TwitterShareButton>
-            <InstapaperShareButton url={window.location.href}>
-              <div className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-social-instagram"></div>
-            </InstapaperShareButton>
+            <FacebookShareButton url={window.location.href}>
+              <div className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer bg-social-facebook"></div>
+            </FacebookShareButton>
           </div>
         </div>
       </motion.div>
