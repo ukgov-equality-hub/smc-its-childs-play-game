@@ -3,20 +3,23 @@ import { SplashScreenModule, type Question } from "../utils/scenes";
 import { Button } from "./Button";
 
 interface Props {
+ // index: number;
   question: Question;
 }
 
 export const SplashScreen = ({
+ // index,
   splashScreen,
   onNextGame
 
 }: {
+//  index: number;
   splashScreen: SplashScreenModule;
   onNextGame: () => void
 }) => {
   return (
     <>
-      <section className="game">
+      <section>
         <div className="game__bg">
           <img src={splashScreen.backgroundImage} alt="" />
         </div>
