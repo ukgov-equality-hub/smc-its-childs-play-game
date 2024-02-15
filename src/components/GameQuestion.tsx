@@ -1,6 +1,7 @@
 import React from "react";
 import { type Question } from "../utils/scenes";
 import { Audio } from "@/components/Audio";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 interface Props {
   question: Question;
@@ -18,7 +19,7 @@ export const GameQuestion = ({ question }: { question: Question }) => {
         <div className="game__clouds">
           <img
             style={{ opacity: question.cloudOpacity }}
-            src="/assets/generic/clouds/clouds.png"
+            src={BASE_URL + "assets/generic/clouds/clouds.png"}
             alt=""
           />
         </div>
