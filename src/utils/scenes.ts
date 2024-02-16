@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 export type Audio = {
   correct: string;
   wrong?: string;
@@ -8,11 +10,12 @@ export type Answers = {
   prompt: string;
   correctAnswer: string;
   correctAnswerResponse: string;
+  correctAnswerMoreQuestionPrompt: string;
   incorrectAnswerResponse: string;
   audio: Audio;
 };
 export type SpeechBubble = {
-  type: "top" | "bottomLeft" | "bottomRight" | "leftTop"| "leftBottom";
+  type: "top" | "bottomLeft" | "bottomRight" | "leftTop" | "leftBottom";
   image: string;
   position: string[];
 };
@@ -23,7 +26,7 @@ export type Question = {
   cloudOpacity: string;
   question: string;
   answer: Answers;
-  audio: string;
+  audio?: string;
 };
 
 export type LearningModule = {
@@ -61,62 +64,64 @@ function createSplashScreenModule(
 }
 
 export const learningModules: Array<LearningModule | SplashScreenModule> = [
-    createSplashScreenModule({
-      logo: "assets/scene_00/logo.svg",
-      backgroundImage: "assets/scene_00/sky_00.jpg",
-      foregroundImage: "assets/scene_00/bg_00.png",
-      cloudOpacity: "80%",
-      message: "Learning fun for everyone",
-      buttonText: "Play",
-      backgroundAudio: "assets/generic/sound/sound_soundtrack.mp3",
-    } as SplashScreenModule),
+  createSplashScreenModule({
+    logo: BASE_URL + "assets/scene_00/logo.svg",
+    backgroundImage: BASE_URL + "assets/scene_00/sky_00.jpg",
+    foregroundImage: BASE_URL + "assets/scene_00/bg_00.png",
+    cloudOpacity: "80%",
+    message: "Learning fun for everyone",
+    buttonText: "Play",
+    backgroundAudio: BASE_URL + "assets/generic/sound/sound_soundtrack.mp3",
+  } as SplashScreenModule),
   createLearningModule({
     learningTip:
       "Counting games can be anything! Get them to count their favourite toys, sweets in a bag or birds in the park.",
-      learningTipLink:
-      "https://www.gov.uk",
+    learningTipLink:
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Count.pdf",
     questions: [
       {
-        backgroundImage: "assets/scene_01/sky_01.jpg",
-        foregroundImage: "assets/scene_01/bg_01a.png",
+        backgroundImage: BASE_URL + "assets/scene_01/sky_01.jpg",
+        foregroundImage: BASE_URL + "assets/scene_01/bg_01a.png",
         speechBubble: {
-          image: "assets/scene_01/speech_buble_01a.png",
+          image: BASE_URL + "assets/scene_01/speech_buble_01a.png",
           position: ["18%", "4%"],
           type: "bottomRight",
         },
         cloudOpacity: "20%",
         question: "Can you count the frogs?",
-        audio: "assets/scene_01/sound/sound_frog.mp3",
+        audio: BASE_URL + "assets/scene_01/sound/sound_frog.mp3",
         answer: {
           choices: ["7", "2", "5", "3"],
-          prompt:"Select a number",
+          prompt: "Select a number",
           correctAnswer: "3",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_01/sound/sound_frog.mp3",
+            correct: BASE_URL + "assets/scene_01/sound/sound_frog.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_01/sky_01.jpg",
-        foregroundImage: "assets/scene_01/bg_01b.png",
+        backgroundImage: BASE_URL + "assets/scene_01/sky_01.jpg",
+        foregroundImage: BASE_URL + "assets/scene_01/bg_01b.png",
         speechBubble: {
-          image: "assets/scene_01/speech_buble_01b.png",
+          image: BASE_URL + "assets/scene_01/speech_buble_01b.png",
           position: ["9%", "13%"],
           type: "bottomLeft",
         },
         cloudOpacity: "20%",
         question: "Can you count the dragonflies?",
-        audio: "assets/scene_01/sound/sound_buzz.mp3",
+        audio: BASE_URL + "assets/scene_01/sound/sound_buzz.mp3",
         answer: {
           choices: ["7", "2", "5", "3"],
-          prompt:"Select a number",
+          prompt: "Select a number",
           correctAnswer: "2",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_01/sound/sound_buzz.mp3",
+            correct: BASE_URL + "assets/scene_01/sound/sound_buzz.mp3",
           },
         },
       },
@@ -125,70 +130,75 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
   createLearningModule({
     learningTip:
       "Chatting to your child about everyday things can really help them! Try asking what colour toys are as you’re tidying.",
+    learningTipLink:
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Play.pdf",
     questions: [
       {
-        backgroundImage: "assets/scene_02/sky_02.jpg",
-        foregroundImage: "assets/scene_02/bg_02a.png",
+        backgroundImage: BASE_URL + "assets/scene_02/sky_02.jpg",
+        foregroundImage: BASE_URL + "assets/scene_02/bg_02a.png",
         speechBubble: {
-          image: "assets/scene_02/speech_buble_02.png",
+          image: BASE_URL + "assets/scene_02/speech_buble_02.png",
           position: ["44%", "17%"],
           type: "top",
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_bell.mp3",
+        audio: BASE_URL + "assets/scene_02/sounds/sound_bus_horn.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
-          prompt:"Select a colour",
+          prompt: "Select a colour",
           correctAnswer: "Red",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_02/sounds/sound_bus_bell.mp3",
+            correct: BASE_URL + "assets/scene_02/sounds/sound_bus_horn.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_02/sky_02.jpg",
-        foregroundImage: "assets/scene_02/bg_02b.png",
+        backgroundImage: BASE_URL + "assets/scene_02/sky_02.jpg",
+        foregroundImage: BASE_URL + "assets/scene_02/bg_02b.png",
         speechBubble: {
-          image: "assets/scene_02/speech_buble_02.png",
+          image: BASE_URL + "assets/scene_02/speech_buble_02.png",
           position: ["44%", "17%"],
           type: "top",
         },
         cloudOpacity: "60%",
         question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_horn.mp3",
+        audio: BASE_URL + "assets/scene_02/sounds/sound_bus_bell.mp3",
         answer: {
           choices: ["Red", "Yellow", "Blue"],
-          prompt:"Select a colour",
+          prompt: "Select a colour",
           correctAnswer: "Blue",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
+          incorrectAnswerResponse: "Oops, try again!",
+          audio: {
+            correct: BASE_URL + "assets/scene_02/sounds/sound_bus_bell.mp3",
+          },
+        },
+      },
+      {
+        backgroundImage: BASE_URL + "assets/scene_02/sky_02.jpg",
+        foregroundImage: BASE_URL + "assets/scene_02/bg_02c.png",
+        speechBubble: {
+          image: BASE_URL + "assets/scene_02/speech_buble_02.png",
+          position: ["44%", "17%"],
+          type: "top",
+        },
+        cloudOpacity: "60%",
+        question: "What colour is the bus?",
+        audio: BASE_URL + "assets/scene_02/sounds/sound_bus_horn.mp3",
+        answer: {
+          choices: ["Red", "Yellow", "Blue"],
+          prompt: "Select a colour",
+          correctAnswer: "Yellow",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
             correct: "assets/scene_02/sounds/sound_bus_horn.mp3",
-          },
-        },
-      },
-      {
-        backgroundImage: "assets/scene_02/sky_02.jpg",
-        foregroundImage: "assets/scene_02/bg_02c.png",
-        speechBubble: {
-          image: "assets/scene_02/speech_buble_02.png",
-          position: ["44%", "17%"],
-          type: "top",
-        },
-        cloudOpacity: "60%",
-        question: "What colour is the bus?",
-        audio: "assets/scene_02/sounds/sound_bus_bell.mp3",
-        answer: {
-          choices: ["Red", "Yellow", "Blue"],
-          prompt:"Select a colour",
-          correctAnswer: "Yellow",
-          correctAnswerResponse: "Correct - keep going!",
-          incorrectAnswerResponse: "Oops, try again!",
-          audio: {
-            correct: "assets/scene_02/sounds/sound_bus_bell.mp3",
           },
         },
       },
@@ -197,73 +207,75 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
   createLearningModule({
     learningTip:
       "There’s no ‘right’ way to play! Try acting out a scene from their favourite story or make up a new one.",
+    learningTipLink:
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Chat.pdf",
     questions: [
       {
-        backgroundImage: "assets/scene_03/sky_03.jpg",
-        foregroundImage: "assets/scene_03/bg_03a.png",
+        backgroundImage: BASE_URL + "assets/scene_03/sky_03.jpg",
+        foregroundImage: BASE_URL + "assets/scene_03/bg_03a.png",
         speechBubble: {
-          image: "assets/scene_03/speech_buble_03a.png",
+          image: BASE_URL + "assets/scene_03/speech_buble_03a.png",
           position: ["24%", "34%"],
           type: "leftTop",
         },
         cloudOpacity: "60%",
         question: "What noise do I make?",
-        audio: "assets/scene_03/sounds/sound_cow.mp3",
         answer: {
           choices: ["Moo", "Baa", "Woof"],
-          prompt:"Select a noise",
+          prompt: "Select a noise",
           correctAnswer: "Moo",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_03/sounds/sound_cow.mp3",
+            correct: BASE_URL + "assets/scene_03/sounds/sound_cow.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_03/sky_03.jpg",
-        foregroundImage: "assets/scene_03/bg_03b.png",
+        backgroundImage: BASE_URL + "assets/scene_03/sky_03.jpg",
+        foregroundImage: BASE_URL + "assets/scene_03/bg_03b.png",
         speechBubble: {
-          image: "assets/scene_03/speech_buble_03bc.png",
+          image: BASE_URL + "assets/scene_03/speech_buble_03bc.png",
           position: ["21%", "34%"],
           type: "leftBottom",
         },
         cloudOpacity: "60%",
         question: "What noise do I make?",
-        audio: "assets/scene_03/sounds/sound_sheep.mp3",
         answer: {
           choices: ["Moo", "Baa", "Woof"],
-          prompt:"Select a noise",
+          prompt: "Select a noise",
           correctAnswer: "Baa",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_03/sounds/sound_sheep.mp3",
+            correct: BASE_URL + "assets/scene_03/sounds/sound_sheep.mp3",
           },
         },
       },
       {
-        backgroundImage: "assets/scene_03/sky_03.jpg",
-        foregroundImage: "assets/scene_03/bg_03c.png",
+        backgroundImage: BASE_URL + "assets/scene_03/sky_03.jpg",
+        foregroundImage: BASE_URL + "assets/scene_03/bg_03c.png",
         speechBubble: {
-          image: "assets/scene_03/speech_buble_03bc.png",
+          image: BASE_URL + "assets/scene_03/speech_buble_03bc.png",
           position: ["21%", "34%"],
           type: "leftBottom",
         },
         cloudOpacity: "60%",
         question: "What noise do I make?",
-        audio: "assets/scene_03/sounds/sound_dog.mp3",
         answer: {
           choices: ["Moo", "Baa", "Woof"],
-          prompt:"Select a noise",
+          prompt: "Select a noise",
           correctAnswer: "Woof",
-          correctAnswerResponse: "Correct - keep going!",
+          correctAnswerResponse: "Correct!",
+          correctAnswerMoreQuestionPrompt: "Correct - keep going!",
           incorrectAnswerResponse: "Oops, try again!",
           audio: {
-            correct: "assets/scene_03/sounds/sound_dog.mp3",
+            correct: BASE_URL + "assets/scene_03/sounds/sound_dog.mp3",
           },
         },
       },
     ],
-  } as LearningModule)
+  } as LearningModule),
 ];

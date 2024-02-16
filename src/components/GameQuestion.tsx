@@ -1,6 +1,7 @@
 import React from "react";
 import { type Question } from "../utils/scenes";
 import { Audio } from "@/components/Audio";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 interface Props {
   question: Question;
@@ -20,7 +21,7 @@ export const GameQuestion = (props : Props) => {
         <div className="game__clouds">
           <img
             style={{ opacity: props.question.cloudOpacity }}
-            src="/assets/generic/clouds/clouds.png"
+            src={BASE_URL + "assets/generic/clouds/clouds.png"}
             alt=""
           />
         </div>
@@ -38,8 +39,10 @@ export const GameQuestion = (props : Props) => {
           <p className="-rotate-bubble-text">{props.question.question}</p>
         </div>
       </section>
+         {question.audio && (
       {props.question.audio && (
         <Audio src={props.question.audio} autoplay key={props.question.audio} onStop={props.onStop} play={props.playAudio} />
+
       )}
     </>
   );
