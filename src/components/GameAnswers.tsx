@@ -41,9 +41,9 @@ export const GameAnswers = (props: props) => {
         <>
           {correctAnswer && (
             <div className="flex gap-x-2 items-center justify-center">
-              <p className="-mt-16 mb-2 py-3 px-5 text-center items-center justify-center rounded-full cursor-pointer text-xl bg-smc-blue text-white border-2 border-white">
+              <div className="-mt-16 mb-2 py-3 px-5 text-center items-center justify-center rounded-full cursor-pointer text-xl bg-smc-blue text-white border-2 border-white">
                 {props.answer.correctAnswer}
-              </p>
+              </div>
             </div>
           )}
 
