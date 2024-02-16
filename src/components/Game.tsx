@@ -18,6 +18,8 @@ export const Game = (props: props) => {
     "question"
   );
   const [questionCompleted, setQuestionCompleted] = useState(false);
+  const [playAudio, setPlayAudio] = useState(true);
+
   const handleQuestionCompleted = () => {
     if (currentQuestion < props.learningModule.questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -29,14 +31,19 @@ export const Game = (props: props) => {
   const handleNextGame = () => {
     props.onNextGame();
     setCurrentScreen("question");
-
     setCurrentQuestion(0);
+
   };
   const handlePlayAgain = () => {
     setQuestionCompleted(false);
     setCurrentScreen("question");
     setCurrentQuestion(0);
+    setPlayAudio(true);
   };
+
+  const handleAudioStop = () => {
+    setPlayAudio(false);
+  }
 
   console.log(props.learningModule.learningTipLink)
   return (
@@ -44,6 +51,8 @@ export const Game = (props: props) => {
       <>
         <GameQuestion
           question={props.learningModule.questions[currentQuestion]}
+          onStop={handleAudioStop}
+          playAudio={playAudio}
         />
 
         <GameAnswers
