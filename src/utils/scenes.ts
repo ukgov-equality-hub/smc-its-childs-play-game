@@ -131,7 +131,7 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
     learningTip:
       "Chatting to your child about everyday things can really help them! Try asking what colour toys are as you’re tidying.",
     learningTipLink:
-      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Play.pdf",
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Chat.pdf",
     questions: [
       {
         backgroundImage: BASE_URL + "assets/scene_02/sky_02.jpg",
@@ -207,8 +207,9 @@ export const learningModules: Array<LearningModule | SplashScreenModule> = [
   createLearningModule({
     learningTip:
       "There’s no ‘right’ way to play! Try acting out a scene from their favourite story or make up a new one.",
+
     learningTipLink:
-      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Chat.pdf",
+      "https://socialmobility.independent-commission.uk/app/uploads/2024/02/Play.pdf",
     questions: [
       {
         backgroundImage: BASE_URL + "assets/scene_03/sky_03.jpg",
