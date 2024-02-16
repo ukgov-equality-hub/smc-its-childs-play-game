@@ -12,6 +12,10 @@ data "aws_cloudfront_cache_policy" "cloudfront_cache_policy__managed_caching_dis
   name = "Managed-CachingDisabled"
 }
 
+data "aws_cloudfront_response_headers_policy" "cloudfront_response_headers_policy__managed_cors_with_preflight" {
+  name = "Managed-CORS-With-Preflight"
+}
+
 locals {
   origin_id = "${var.service_name_hyphens}--${var.environment_hyphens}--S3-origin"
 }
@@ -51,6 +55,7 @@ resource "aws_cloudfront_distribution" "distribution_for_s3_bucket" {
     target_origin_id = local.origin_id
     viewer_protocol_policy = "redirect-to-https"
     compress = true
+    response_headers_policy_id = data.aws_cloudfront_response_headers_policy.cloudfront_response_headers_policy__managed_cors_with_preflight.id
   }
 
   restrictions {
