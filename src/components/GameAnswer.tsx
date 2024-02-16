@@ -26,11 +26,11 @@ export const GameAnswer = ({
   const answerClasses = () => selectionState == undefined ? unselectedClasses : selectionState == false ? selectedIncorrectClasses : null;
 
   return (
-    <p
+    <div
       className={`py-3 px-5 flex-1 text-center items-center justify-center rounded-full cursor-pointer text-xl ${answerClasses()}`}
       onClick={() => handleSelectAnswer(item)}
     >
       {item}
-    </p>
+    </div>
   );
 };

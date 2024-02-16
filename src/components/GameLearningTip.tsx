@@ -109,8 +109,8 @@ export const GameLearningTip = (props: props) => {
         animate={panelVisible ? "tooltipVisible" : "tooltipHidden"}
       >
         <div className="px-5 py-7">
-          <h2 className="font-paytone pb-5">Learning tip</h2>
-          <p className=" font-bold font-cabinet-grotesk mx-1">{props.children}</p>
+          <h2 className="font-paytone pb-5 text-white">Learning tip</h2>
+          <p className=" font-bold font-cabinet-grotesk mx-1  text-white">{props.children}</p>
           {props.linkUrl != null && (
             <a className="py-3 font-black inline-block font-cabinet-grotesk" href={props.linkUrl} target="_blank">
               More tips
