@@ -102,7 +102,7 @@ export const GameLearningTip = (props: props) => {
       onAnimationComplete={() => setPanelVisible(true)}
     >
       <motion.div
-        className="relative rounded-xl mx-5 my-11 bg-smc-blue text-white text-center text-xl font-cabinet-grotesk"
+        className="relative rounded-xl mx-5 my-11 bg-smc-blue text-white text-center text-xl"
         variants={variants}
         initial="tooltipHidden"
         exit="tooltipExit"
@@ -110,9 +110,9 @@ export const GameLearningTip = (props: props) => {
       >
         <div className="px-5 py-7">
           <h2 className="font-paytone pb-5">Learning tip</h2>
-          <p className=" font-bold  mx-1">{props.children}</p>
+          <p className=" font-bold font-cabinet-grotesk mx-1">{props.children}</p>
           {props.linkUrl != null && (
-            <a className="py-3 font-black inline-block" href={props.linkUrl} target="_blank">
+            <a className="py-3 font-black inline-block font-cabinet-grotesk" href={props.linkUrl} target="_blank">
               More tips
             </a>
           )}

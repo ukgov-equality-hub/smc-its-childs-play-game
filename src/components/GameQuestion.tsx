@@ -36,7 +36,7 @@ export const GameQuestion = (props : Props) => {
           className={`game__speechBubble ${speechBubbleClass}`}
         >
           <img src={props.question.speechBubble.image}></img>
-          <p className="-rotate-bubble-text">{props.question.question}</p>
+          <p className="-rotate-bubble-text font-paytone">{props.question.question}</p>
         </div>
       </section>
          {props.question.audio && (

@@ -10,7 +10,7 @@ export const Button = ({ children, theme = "primary", onClick }: props) => {
   const buttonThemeClasses = () => {
     switch (theme) {
       case "secondary":
-        return "text-white border-2 border-white";
+        return "text-white border-2 border-white border-solid";
 
       default:
         return " text-smc-blue bg-white";
