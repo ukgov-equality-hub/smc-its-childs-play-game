@@ -39,8 +39,7 @@ export const GameQuestion = (props : Props) => {
           <p className="-rotate-bubble-text">{props.question.question}</p>
         </div>
       </section>
-         {question.audio && (
-      {props.question.audio && (
+         {props.question.audio && (
         <Audio src={props.question.audio} autoplay key={props.question.audio} onStop={props.onStop} play={props.playAudio} />
 
       )}
