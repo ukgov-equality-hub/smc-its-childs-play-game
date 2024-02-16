@@ -9,6 +9,7 @@ interface props {
   autoplay?: boolean;
   play?: boolean;
   muted?: boolean;
+  onStop?: () => void;
 }
 
 export const Audio = (props: props) => {
@@ -37,9 +38,14 @@ export const Audio = (props: props) => {
 
   useEffect(() => {
     if (audioRef.current) {
-
       if (props.play) {
         audioRef.current.play();
+
+        audioRef.current.addEventListener("ended", (event) => {
+          if (props.onStop) {
+            props.onStop();
+          }
+        });
       }
     }
   }, [props.play]);
